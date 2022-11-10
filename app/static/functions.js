@@ -5,13 +5,14 @@ var betVal;
 
 //TODO:Fonction qui check dans la bdd le nombre de jetons
 
-function game()
+async function game()
 {
     var multiple = 2;
     if(betCard != null)
     {
         var winnerCard = Math.floor(Math.random() * 4)+1;
         showWait();
+        await sleep(2000);  
         if(winnerCard == betCard)
         {
             allJetons += betVal*multiple - betVal;
