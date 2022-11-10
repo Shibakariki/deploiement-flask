@@ -1,12 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
-from flask_redis import FlaskRedis
+import redis
 
 app = Flask(__name__)
-app = Flask(__app__)
-app.config['REDIS_HOST'] = 'localhost'
-app.config['REDIS_PORT'] = 6379
-app.config['REDIS_DB'] = 0
-redis_client = FlaskRedis(app)
+redis_client = redis.Redis()
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():
@@ -16,7 +12,10 @@ def index():
 def game():
     name = request.cookies.get('userID',default=None)
     if name != None:
-        return redis_client.get("test") #render_template("game.html")
+        try:
+            return redis_client.get("test") #render_template("game.html")
+        except:
+            redis_client.ping()
     else:
         return redirect(url_for('ask_name'))
 
