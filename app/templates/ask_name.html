@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="has-background-light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loading - Jeu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/spin.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer src="../static/functions.js"></script>
+    <script defer src="../static/cookies.js"></script>
+    <script>
+        function validName()
+        {
+            contenu = document.getElementById("name-cookie").value
+            creerCookie("userID", contenu, 1)
+        }
+    </script>
+</head>
+
+<body onload="refreshScore()">
+
+    <nav class="navbar block has-background-grey-lighter" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <span id="main-redirect" onclick="redirect('main')">Projet Big Data - NoSQL</span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                    <a class="navbar-item">
+                        <span id="game-redirect" onclick="redirect('game')">Jeu</span>
+                    </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <button class="button is-link is-outlined has-background-grey-lighter"><span id="nbJetons"
+                            onclick="jetonsRedirection()"></span></button>
+                </div>
+            </div>
+    </nav>
+    
+    <div class="modal" id="modal-input">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="column is-three-fifths is-offset-one-fifth">
+                <div class="box">
+                    <div class="columns is-centered">
+                        <div class="column is-offset-2">
+                            <p>Indiquer votre nom</p>
+                            <input id="name-cookie" class="block">
+                            <button class="button is-centered is-small" onclick="validName()">Valider</button>    
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+</body>
+
+</html>
