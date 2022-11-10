@@ -29,7 +29,7 @@ def game():
 @app.route('/setcookie')
 def setcookie():
     jetons = 100
-    resp = make_response(f"The Cookie has been Set")
+    resp = make_response(render_template("game.html"))
     resp.set_cookie('ckitonbjt-v2',str(jetons))
     return resp
 
