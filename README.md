@@ -88,3 +88,12 @@ On ajoute notre application à Apache2:
 
 On peut maintenant lancer notre serveur Apache2:
 > service apache2 restart
+
+# Comment se servir de l'application
+
+#### But
+Jeu de hasard où l'on doit parier sur une carte un nombre de jetons.
+
+100 jetons sont offerts dès le début, mais il est également possible d'en acheter gratuitement en cliquant sur les jetons en haut à droite.
+
+
