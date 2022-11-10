@@ -23,7 +23,7 @@ def addJetons():
             redis_client.set(name,redis_client.get(name)+jetons)
         except:
             var = int(redis_client.get(name)) + jetons
-            return  str(var)
+            return " str(var)"
         try:
             redis_client.rpush("add"+name,jetons)
         except:
