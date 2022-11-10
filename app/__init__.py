@@ -11,6 +11,7 @@ def index():
 @app.route('/game', methods = ['POST', 'GET'])
 def game():
     try:
+        request.cookies.set('userID',"cc")
         name = request.cookies.get('userID')
         return name
     except:
