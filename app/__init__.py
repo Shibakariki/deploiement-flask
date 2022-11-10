@@ -10,11 +10,10 @@ def index():
     
 @app.route('/game', methods = ['POST', 'GET'])
 def game():
-    try:
-        name = request.cookies.get('userID')
-        return name
+    name = request.cookies.get('userID',default=None)
+    if name != None:
         return render_template("game.html")
-    except:
+    else:
         return redirect(url_for('ask_name'))
 
 @app.route('/game/naasmke', methods = ['POST', 'GET'])
