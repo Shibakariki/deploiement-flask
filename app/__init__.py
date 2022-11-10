@@ -23,7 +23,7 @@ def game():
         return redirect(url_for('ask_name'))
 
 def set_cookie(jetons):
-    resp = make_response()
+    resp = make_response(render_template("game.html"))
     resp.set_cookie('ckitonbjt-v2', jetons)
     return resp 
 
