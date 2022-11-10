@@ -16,7 +16,7 @@ async function game()
     {
         var winnerCard = Math.floor(Math.random() * 4)+1;
         showWait();
-        await sleep(2000);  
+        await sleep(4000);  
         if(winnerCard == betCard)
         {
             allJetons += betVal*multiple - betVal;
@@ -27,6 +27,7 @@ async function game()
         }
         reset();
         refreshScore();
+        closeWait();
     }
     else
     {
@@ -147,14 +148,9 @@ document.addEventListener('keydown', (event) => {
     const e = event || window.event;
 
     if (e.keyCode === 27) { // Escape key
-        closeAllModal();
+        closeModal();
     }
 });
-var elements = document.querySelectorAll('.modal-close, .modal-background');
-
-for (var i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', closeAllModal, false);
-}
 
 document.addEventListener('keydown', (event) => {
     const e = event || window.event;

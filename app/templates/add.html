@@ -15,16 +15,14 @@
         <nav class="navbar block has-background-grey-lighter" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item">
-                    <span id="main-redirect">Projet Big Data - NoSQL</span>
+                    <span id="main-redirect" onclick="redirect('main')">Projet Big Data - NoSQL</span>
                 </a>
             </div>
     
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                         <a class="navbar-item">
-                            <button class="button is-ghost" id="game-redirect">
-                                Jeu
-                            </button>
+                            <span id="game-redirect" onclick="redirect('game')">Jeu</span>
                         </a>
                 </div>
                 <div class="navbar-end">
@@ -34,7 +32,7 @@
                     </div>
                 </div>
         </nav>
-        
+            
         <section class="block">
             <p class="title has-text-centered">Formulaire de donation</p>
         </section>
