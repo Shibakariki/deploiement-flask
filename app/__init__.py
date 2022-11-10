@@ -21,10 +21,8 @@ def addJetons():
     if name != None:
         try:
             redis_client.set(name,redis_client.get(name)+jetons)
-            return "ria"
-
         except:
-            var = redis_client.get(name)
+            var = str(type(redis_client.get(name)))
             return var
         try:
             redis_client.rpush("add"+name,jetons)
