@@ -22,8 +22,8 @@ def addJetons():
         try:
             redis_client.set(name,redis_client.get(name)+jetons)
         except:
-            var = int(redis_client.get(name))
-            return  var
+            var = int(redis_client.get(name)) + jetons
+            return  str(var)
 
         redis_client.rpush("add"+name,jetons)
     return redirect(url_for('game'))
