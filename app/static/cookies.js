@@ -16,3 +16,8 @@ function recupererCookie(nom) {
     }
     return null;
 }
+
+function supprimerCookie(nom)
+{
+    document.cookie = nom+"=; expires=passedDate";
+}

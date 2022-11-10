@@ -9,7 +9,7 @@ function getNbJetons()
 
 function setNbJetons(nbJetons)
 {
-    return creerCookie("ckitonbjt-v2",nbJetons,1);
+    creerCookie("ckitonbjt-v2",nbJetons,1);
 }
 
 //TODO:Fonction qui check dans la bdd le nombre de jetons
