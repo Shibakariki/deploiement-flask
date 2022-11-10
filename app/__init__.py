@@ -14,7 +14,7 @@ def index():
 def game():
     name = request.cookies.get('userID',default=None)
     if name != None:
-        return redis_client.get(name)
+        return str(redis_client.get(name))
         # try:
         #     jetons = redis_client.get(name)
         # except:
