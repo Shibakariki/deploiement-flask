@@ -2,6 +2,10 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_redis import FlaskRedis
 
 app = Flask(__name__)
+app = Flask(__app__)
+app.config['REDIS_HOST'] = 'localhost'
+app.config['REDIS_PORT'] = 6379
+app.config['REDIS_DB'] = 0
 redis_client = FlaskRedis(app)
 
 @app.route('/', methods = ['POST', 'GET'])

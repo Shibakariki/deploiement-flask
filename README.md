@@ -31,6 +31,11 @@ On va installer les outils dont on va avoir besoin :
     > apt-get install python3-pip
     > pip3 install virtualenv
     > pip3 install Flask
+- Installation de Redis :
+    > apt install lsb-release
+    > apt install curl
+    > curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+    > sudo apt-get install redis
 - Création d'un environment virtuel : 
     > virtualenv venv
     > source venv/bin/activate
