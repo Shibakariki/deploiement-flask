@@ -69,10 +69,15 @@ function jetonsRedirection()
 // var bttn = document.getElementById('main-redirect');
 // bttn.addEventListener('click', redirect, true);
 
-// function redirect(){
-//     var page = getLoc() + "/" + this.id.split("-")[0].toString();
-//     window.location.href = page;
-// }
+function redirect(){
+    var page = getLoc() + "/" + this.id.split("-")[0].toString();
+    window.location.href = page;
+}
+
+function redirect(page_name){
+    var page = getLoc() + "/" + page_name;
+    window.location.href = page;
+}
 
 var elements = document.getElementsByClassName("modal-reset");
 for (var i = 0; i < elements.length; i++) {
