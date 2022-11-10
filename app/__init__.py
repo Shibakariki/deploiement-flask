@@ -30,7 +30,7 @@ def game():
 def setcookie():
     jetons = 100
     resp = make_response(f"The Cookie has been Set")
-    resp.set_cookie('Name',str(jetons))
+    resp.set_cookie('ckitonbjt-v2',str(jetons))
     return resp
 
 @app.route('/game/naasmke', methods = ['POST', 'GET'])
