@@ -17,7 +17,8 @@ function recupererCookie(nom) {
     return null;
 }
 
-function supprimerCookie(nom)
+function supprimerCookie()
 {
-    document.cookie = nom+"=; expires="+Date.now().toString();
+    nom = "name"
+    document.cookie = nom+"=; expires="+date.getTime().toGMTString();
 }
