@@ -17,15 +17,16 @@ def game():
         except:
             jetons = 100
             redis_client.set(name,jetons)
-        set_cookie(jetons)
-        return render_template("game.html")
+            
+        resp = make_response(render_template("game.html"))
+        resp.set_cookie('ckitonbjt-v2', jetons)
+        return resp
     else:
         return redirect(url_for('ask_name'))
 
-def set_cookie(jetons):
-    resp = make_response(render_template("game.html"))
-    resp.set_cookie('ckitonbjt-v2', jetons)
-    return resp 
+@app.route('/setcookie', methods = ['POST', 'GET'])
+def setcookie(jetons):
+ 
 
 @app.route('/game/naasmke', methods = ['POST', 'GET'])
 def ask_name():
