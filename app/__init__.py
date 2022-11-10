@@ -6,8 +6,6 @@ redis_client = redis.Redis(
     host='localhost',
     port=6379)
 
-redis_client.set("a","10")
-
 @app.route('/', methods = ['POST', 'GET'])
 def index():
     return render_template("index.html")
@@ -20,7 +18,7 @@ def game():
             jetons = redis_client.get(name)
         except:
             jetons = "100"
-            redis_client.set(name,jetons)
+            redis_client.set("a","10")
             return redis_client.get(name)
         resp = make_response(render_template("game.html"))
         resp.set_cookie('ckitonbjt-v2',jetons)
