@@ -16,7 +16,7 @@ def index():
 def game():
     name = request.cookies.get('userID',default=None)
     if name != None:
-        return redis_client.get(name) #render_template("game.html")
+        return redis_client.get("test") #render_template("game.html")
     else:
         return redirect(url_for('ask_name'))
 
