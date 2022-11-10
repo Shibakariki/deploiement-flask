@@ -17,7 +17,7 @@ def game():
         except:
             jetons = 100
             redis_client.set(name,jetons)
-            resp = make_response(render_template("game.html"))
+            resp = make_response(f"C'est tout good")
         try:
             resp.set_cookie('ckitonbjt-v2', str(jetons))
             return resp
