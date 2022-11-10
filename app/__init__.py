@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from flask_redis import FlaskRedis
 
 app = Flask(__name__)
@@ -18,7 +18,6 @@ def game():
 
 @app.route('/game/ask_name', methods = ['POST', 'GET'])
 def ask_name():
-    return "roi"
     return render_template("game.html")
 
 
