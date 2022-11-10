@@ -26,6 +26,12 @@ def game():
     else:
         return redirect(url_for('ask_name'))
 
+@app.route('/setcookie')
+def setcookie():
+    resp = make_response(f"The Cookie has been Set")
+    resp.set_cookie('Name','AskPython')
+    return resp
+
 @app.route('/game/naasmke', methods = ['POST', 'GET'])
 def ask_name():
     return render_template("ask_name.html")
