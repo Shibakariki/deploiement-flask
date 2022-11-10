@@ -87,8 +87,6 @@ function redirect(page_name){
 
 function redirectBack(){
     var page = getLoc();
-    alert(page);
-    alert(window.location.toString().split("/"));
     window.location.href = page;
 }
 
