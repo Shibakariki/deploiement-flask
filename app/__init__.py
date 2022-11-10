@@ -14,11 +14,12 @@ def index():
 def add():
     return render_template("add.html")
 
-@app.route('/add/<jetons>', methods = ['GET'])
-def addJetons(jetons):
-    name = request.cookies.get('userID',default=None)
+@app.route('/addJetons', methods = ['GET'])
+def addJetons():
+    name = request.form.get("username")
+    jetons = request.form.get("donate")
     if name != None:
-        redis_client.set(name,jetons)
+        redis_client.set(name,redis_client.get(name)+jetons)
         redis_client.rpush("add"+name,jetons)
     return redirect(url_for('game'))
 
