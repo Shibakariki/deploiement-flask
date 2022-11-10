@@ -2,7 +2,11 @@ from flask import Flask, render_template, redirect, url_for, request, make_respo
 import redis
 
 app = Flask(__name__)
-redis_client = redis.Redis(decode_responses=True)
+redis_client = redis.Redis(
+    host='localhost',
+    port=6379)
+
+redis_client.set("a","10")
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():
