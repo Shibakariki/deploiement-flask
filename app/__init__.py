@@ -16,8 +16,8 @@ def add():
 
 @app.route('/addJetons', methods = ['POST'])
 def addJetons():
-    name = request.form.get("username")
-    jetons = request.form.get("donate")
+    name = request.args['username']
+    jetons = request.args['donate']
     if name != None:
         redis_client.set(name,redis_client.get(name)+jetons)
         redis_client.rpush("add"+name,jetons)
