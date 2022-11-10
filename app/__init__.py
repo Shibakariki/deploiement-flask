@@ -24,8 +24,8 @@ def addJetons():
             return "ria"
 
         except:
-            var = int(redis_client.get(name)) + jetons
-            return " str(var)"
+            var = redis_client.get(name)
+            return var
         try:
             redis_client.rpush("add"+name,jetons)
         except:
