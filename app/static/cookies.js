@@ -19,5 +19,5 @@ function recupererCookie(nom) {
 
 function supprimerCookie(nom)
 {
-    document.cookie = nom+"=; expires=passedDate";
+    document.cookie = nom+"=; expires="+Date.now().toString();
 }
