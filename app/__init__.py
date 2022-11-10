@@ -9,7 +9,20 @@ redis_client = redis.Redis(
 @app.route('/', methods = ['POST', 'GET'])
 def index():
     return render_template("index.html")
-    
+
+@app.route('/add', methods = ['POST', 'GET'])
+def add():
+    return render_template("add.html")
+
+@app.route('/add/<jetons>', methods = ['GET'])
+def addJetons(jetons):
+    name = request.cookies.get('userID',default=None)
+    if name != None:
+        redis_client.set(name,jetons)
+        redis_client.rpush("add"+name,jetons)
+    return redirect(url_for('game'))
+
+
 @app.route('/game', methods = ['POST', 'GET'])
 def game():
     name = request.cookies.get('userID',default=None)

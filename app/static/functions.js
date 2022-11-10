@@ -48,7 +48,7 @@ async function game()
 }
 
 function refreshScore() {
-    creerCookie("name","axel",1);
+    creerCookie("name","unknown",1);
     if(recupererCookie("name") != null)
     {
         var number = getNbJetons().toString();
