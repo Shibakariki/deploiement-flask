@@ -1,2 +1,2 @@
 Flask == 2.2.2
-Redis
+flask-redis == 0.4.0
