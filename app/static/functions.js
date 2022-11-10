@@ -9,6 +9,7 @@ function getNbJetons()
 
 function setNbJetons(nbJetons)
 {
+    supprimerCookie("ckitonbjt-v2");
     creerCookie("ckitonbjt-v2",nbJetons,1);
 }
 

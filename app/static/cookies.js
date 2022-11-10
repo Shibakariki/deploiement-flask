@@ -17,10 +17,9 @@ function recupererCookie(nom) {
     return null;
 }
 
-function supprimerCookie()
+function supprimerCookie(nom)
 {
-    nom = "userID"
     var date = new Date();
-    date.setTime(date.getTime());
+    date.setTime(date.getTime()-1000);
     document.cookie = nom+"=; expires="+date.toGMTString()+ "; path=/";;
 }
