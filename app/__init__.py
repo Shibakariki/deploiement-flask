@@ -19,9 +19,10 @@ def addJetons():
     try:
         name = request.form.get('username')
         jetons = request.form.get('donate')
+        return name+" - "+jetons
     except:
         return 'rip'
-        
+
     if name != None:
         redis_client.set(name,redis_client.get(name)+jetons)
         redis_client.rpush("add"+name,jetons)
