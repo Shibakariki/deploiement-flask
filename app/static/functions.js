@@ -5,6 +5,10 @@ var betVal;
 
 //TODO:Fonction qui check dans la bdd le nombre de jetons
 
+function sleep(milliseconds) {  
+    return new Promise(resolve => setTimeout(resolve, milliseconds));  
+}  
+
 async function game()
 {
     var multiple = 2;
