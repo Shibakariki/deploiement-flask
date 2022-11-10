@@ -19,7 +19,7 @@ function recupererCookie(nom) {
 
 function supprimerCookie()
 {
-    nom = "name"
+    nom = "userID"
     var date = new Date();
     date.setTime(date.getTime());
     document.cookie = nom+"=; expires="+date.toGMTString()+ "; path=/";;
