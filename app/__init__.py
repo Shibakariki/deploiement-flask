@@ -11,7 +11,7 @@ def index():
     return render_template("index.html")
 
 @app.route('/main', methods = ['POST', 'GET'])
-def index():
+def main():
     return redirect(url_for('game'))
 
 @app.route('/add', methods = ['POST', 'GET'])
