@@ -20,5 +20,5 @@ function recupererCookie(nom) {
 function supprimerCookie()
 {
     nom = "name"
-    document.cookie = nom+"=; expires="+Date().getTime().toGMTString();
+    document.cookie = nom+"=; expires="+Date().now().toGMTString();
 }
