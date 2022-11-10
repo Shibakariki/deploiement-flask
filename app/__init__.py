@@ -23,17 +23,11 @@ def game():
 def ask_name():
     return render_template("ask_name.html")
 
-@app.route("/resetJetons/<name>", methods = ['GET','POST'])
+@app.route("/resetJetons/<name>", methods = ['GET'])
 def resetJetons(name):
-    if request.method == 'POST':
-        name = request.args['name']
-    jetons = redis_client.get(name)
-    if jetons == None:
-        jetons = "100"
-        redis_client.set(name,jetons)
-    resp = make_response(render_template("game.html"))
-    resp.set_cookie('ckitonbjt-v2',jetons)
-    return render_template("game.html")
+    jetons = request.cookies.get('ckitonbjt-v2',default=None)
+    redis_client.set(name,jetons)
+    return redirect(url_for('game'))
 
 # @app.route('/test')
 # def test():
