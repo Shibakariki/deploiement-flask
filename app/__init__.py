@@ -14,16 +14,17 @@ def index():
 def game():
     name = request.cookies.get('userID',default=None)
     if name != None:
-        try:
-            jetons = redis_client.get(name)
-        except:
-            jetons = "100"
-            return str(name)
-            redis_client.set(name,"100")
-            return redis_client.get(name)
-        resp = make_response(render_template("game.html"))
-        resp.set_cookie('ckitonbjt-v2',jetons)
-        return resp
+        return name
+        # try:
+        #     jetons = redis_client.get(name)
+        # except:
+        #     jetons = "100"
+        #     return str(name)
+        #     redis_client.set(name,"100")
+        #     return redis_client.get(name)
+        # resp = make_response(render_template("game.html"))
+        # resp.set_cookie('ckitonbjt-v2',jetons)
+        # return resp
     else:
         return redirect(url_for('ask_name'))
 
