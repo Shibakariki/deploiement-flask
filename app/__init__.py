@@ -10,7 +10,8 @@ def index():
     
 @app.route('/game', methods = ['POST', 'GET'])
 def game():
-    name = request.cookies.get('userID')
+    # name = request.cookies.get('userID')
+    name = "cc"
     return name
     if name != None:    
         return render_template("game.html")
