@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, make_response
 import redis
 
 app = Flask(__name__)
@@ -13,11 +13,19 @@ def game():
     name = request.cookies.get('userID',default=None)
     if name != None:
         try:
-            return redis_client.get("test") #render_template("game.html")
+            jetons = redis_client.get(name)
         except:
-            redis_client.ping()
+            jetons = 100
+            redis_client.set(name,jetons)
+        set_cookie(jetons)
+        return render_template("game.html")
     else:
         return redirect(url_for('ask_name'))
+
+def set_cookie(jetons):
+    resp = make_response()
+    resp.set_cookie('ckitonbjt-v2', jetons)
+    return resp 
 
 @app.route('/game/naasmke', methods = ['POST', 'GET'])
 def ask_name():
