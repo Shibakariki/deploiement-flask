@@ -19,7 +19,7 @@ def game():
             redis_client.set(name,jetons)
             resp = make_response(f"C'est tout good")
         try:
-            resp.set_cookie('ckitonbjt-v2', str(jetons))
+            resp.set_cookie('ckitonbjt-v2', "100")
             return resp
         except:
             return "rip"
