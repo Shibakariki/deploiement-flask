@@ -14,7 +14,7 @@ def index():
 def add():
     return render_template("add.html")
 
-@app.route('/addJetons', methods = ['GET'])
+@app.route('/addJetons', methods = ['POST'])
 def addJetons():
     name = request.form.get("username")
     jetons = request.form.get("donate")
