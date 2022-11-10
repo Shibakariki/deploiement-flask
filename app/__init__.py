@@ -16,7 +16,7 @@ def game():
     except:
         return redirect(url_for('ask_name'))
 
-@app.route('/game/naasmke', methods = ['POST', 'GET'])
+@app.route('/game/ask_name', methods = ['POST', 'GET'])
 def ask_name():
     return render_template("game.html")
 
