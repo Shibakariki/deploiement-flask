@@ -11,7 +11,7 @@ function setNbJetons(nbJetons)
 {
     supprimerCookie("ckitonbjt-v2");
     creerCookie("ckitonbjt-v2",nbJetons,1);
-    redirect("resetJetons");
+    redirect("resetJetons",recupererCookie("userID"));
 }
 
 //TODO:Fonction qui check dans la bdd le nombre de jetons
@@ -85,11 +85,19 @@ function jetonsRedirection()
 
 function redirect(param=null){
     var page = getLoc() + "/" + this.id.split("-")[0].toString();
+    if (param != null)
+    {
+        page += "/"+param;
+    }
     window.location.href = page;
 }
 
-function redirect(page_name){
+function redirect(page_name,param=null){
     var page = getLoc() + "/" + page_name;
+    if (param != null)
+    {
+        page += "/"+param;
+    }
     window.location.href = page;
 }
 
