@@ -83,10 +83,7 @@ function jetonsRedirection()
     return;
 }
 
-// var bttn = document.getElementById('main-redirect');
-// bttn.addEventListener('click', redirect, true);
-
-function redirect(){
+function redirect(param=null){
     var page = getLoc() + "/" + this.id.split("-")[0].toString();
     window.location.href = page;
 }
