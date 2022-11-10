@@ -12,6 +12,7 @@ def index():
 def game():
     try:
         name = request.cookies.get('userID')
+        return name
         return render_template("game.html")
     except:
         return redirect(url_for('ask_name'))
