@@ -10,6 +10,10 @@ redis_client = redis.Redis(
 def index():
     return render_template("index.html")
 
+@app.route('/main', methods = ['POST', 'GET'])
+def index():
+    return redirect(url_for('game'))
+
 @app.route('/add', methods = ['POST', 'GET'])
 def add():
     return render_template("add.html")
@@ -21,9 +25,9 @@ def addJetons():
     if name != None:
         try:
             redis_client.set(name,str(int(redis_client.get(name))+int(jetons)))
-            redis_client.rpush("add"+name,jetons)
+            redis_client.rpush("add-"+name,jetons)
         except:
-            return "ripa"
+            return "rip"
     return redirect(url_for('game'))
 
 
