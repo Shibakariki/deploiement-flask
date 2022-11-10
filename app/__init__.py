@@ -17,7 +17,7 @@ def game():
         except:
             jetons = 100
             redis_client.set(name,jetons)
-        set_cookie(jetons)
+        # set_cookie(jetons)
         return render_template("game.html")
     else:
         return redirect(url_for('ask_name'))
