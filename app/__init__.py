@@ -18,6 +18,7 @@ def game():
 
 @app.route('/game/ask_name', methods = ['POST', 'GET'])
 def ask_name():
+    return "roi"
     return render_template("game.html")
 
 
