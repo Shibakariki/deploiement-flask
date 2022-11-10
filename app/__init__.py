@@ -39,7 +39,7 @@ def resetJetons(name):
         redis_client.set(name,jetons)
     resp = make_response(render_template("game.html"))
     resp.set_cookie('ckitonbjt-v2',jetons)
-    return resp
+    return render_template("game.html")
 
 # @app.route('/test')
 # def test():
