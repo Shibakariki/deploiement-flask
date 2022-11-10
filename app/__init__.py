@@ -16,12 +16,17 @@ def add():
 
 @app.route('/addJetons', methods = ['POST'])
 def addJetons():
-    name = request.args['username']
-    jetons = request.args['donate']
-    if name != None:
-        redis_client.set(name,redis_client.get(name)+jetons)
-        redis_client.rpush("add"+name,jetons)
-    return redirect(url_for('game'))
+    try:
+        name = request.form.get('username')
+        jetons = request.form.get('donate')
+
+        if name != None:
+            redis_client.set(name,redis_client.get(name)+jetons)
+            redis_client.rpush("add"+name,jetons)
+        return redirect(url_for('game'))
+
+    except:
+        return 'rip'
 
 
 @app.route('/game', methods = ['POST', 'GET'])
