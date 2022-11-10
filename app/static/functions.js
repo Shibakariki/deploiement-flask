@@ -27,7 +27,7 @@ async function game()
     {
         var winnerCard = Math.floor(Math.random() * 4)+1;
         showWait();
-        await sleep(4000);  
+        await sleep(3000);  
         if(winnerCard == betCard)
         {
             setNbJetons(getNbJetons() + betVal*multiple - betVal);
