@@ -15,10 +15,10 @@ def game():
         try:
             jetons = redis_client.get(name)
         except:
-            jetons = 100
+            jetons = "100"
             redis_client.set(name,jetons)
         resp = make_response(render_template("game.html"))
-        resp.set_cookie('ckitonbjt-v2',str(jetons))
+        resp.set_cookie('ckitonbjt-v2',jetons)
         return resp
     else:
         return redirect(url_for('ask_name'))
