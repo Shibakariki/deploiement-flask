@@ -1,7 +1,16 @@
 var cardNumber;
 var betCard = null;
-var allJetons = 100;
 var betVal;
+
+function getNbJetons()
+{
+    return parseInt(recupererCookie("ckitonbjt-v2"));
+}
+
+function setNbJetons(nbJetons)
+{
+    return creerCookie("ckitonbjt-v2",nbJetons,1);
+}
 
 //TODO:Fonction qui check dans la bdd le nombre de jetons
 
@@ -19,11 +28,11 @@ async function game()
         await sleep(4000);  
         if(winnerCard == betCard)
         {
-            allJetons += betVal*multiple - betVal;
+            setNbJetons(getNbJetons() + betVal*multiple - betVal);
         }
         else
         {
-            allJetons -= betVal;
+            setNbJetons(getNbJetons() - betVal);
         }
         reset();
         refreshScore();
@@ -40,7 +49,7 @@ function refreshScore() {
     creerCookie("name","axel",1);
     if(recupererCookie("name") != null)
     {
-        var number = allJetons.toString();
+        var number = getNbJetons().toString();
         document.getElementById("nbJetons").innerHTML = number + " Jetons";
     }
     else
@@ -181,7 +190,7 @@ function closeModal()
             number = parseInt(number)
             if(Number.isInteger(number) && number > 0)
             {
-                if(number <= allJetons)
+                if(number <= getNbJetons())
                 {
                     refreshBet(number);
                     betCard = cardNumber;
