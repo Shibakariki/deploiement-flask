@@ -85,6 +85,11 @@ function redirect(page_name){
     window.location.href = page;
 }
 
+function redirectBack(){
+    var page = getLoc();
+    window.location.href = page;
+}
+
 var elements = document.getElementsByClassName("modal-reset");
 for (var i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', reset, false);
